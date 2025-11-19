@@ -1,7 +1,7 @@
-# Assignment 11
+# Assignment 12 - CI & CD
 
-Comp-3020
+Comp-3020 - Cloud Infrastructure
 
-## Group
+## Group 1
 
 Lukas Steer & Noah Manaigre
