@@ -1,3 +1,4 @@
+---
 name: Lint
 
 on: # yamllint disable-line rule:truthy
@@ -14,16 +15,20 @@ jobs:
     permissions:
       contents: read
       packages: read
+      # To report GitHub Actions status checks
       statuses: write
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # SHA for actions/checkout v5.0.0 :contentReference[oaicite:0]{index=0}
+        uses: actions/checkout@v5
         with:
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
           fetch-depth: 0
           persist-credentials: false
 
       - name: Super-linter
-        uses: super-linter/super-linter@2bdd90e8d1cfd59a1f9b83dc192a10f4c568cb29  # full SHA for v8.2.1 :contentReference[oaicite:1]{index=1}
+        uses: super-linter/super-linter@v8.2.1 # x-release-please-version
         env:
+          # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
